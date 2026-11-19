@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="VisionMate is a proposed AI-powered wearable assistant concept for accessible audio descriptions and navigation support.">
+<title>VisionMate — See the world through AI</title>
+<style>
+:root{--navy:#12304a;--blue:#1686c4;--sky:#dff4ff;--pale:#f4fbff;--white:#fff;--muted:#526779;--line:#d7eaf5}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:Arial,Helvetica,sans-serif;color:var(--navy);background:var(--white);line-height:1.6}
+a{color:inherit;text-decoration:none}.container{width:min(1120px,92%);margin:auto}
+header{position:sticky;top:0;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line);z-index:10}
+.nav{height:72px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+.brand{font-weight:800;font-size:1.35rem;letter-spacing:-.5px}.brand span{color:var(--blue)}
+nav{display:flex;gap:25px;font-size:.94rem;font-weight:600;color:#304b60}nav a:hover{color:var(--blue)}
+.btn{display:inline-block;padding:12px 20px;border-radius:999px;background:var(--blue);color:white;font-weight:700;border:0;cursor:pointer;box-shadow:0 8px 22px #1686c426}
+.btn.secondary{background:white;color:var(--navy);border:1px solid var(--line);box-shadow:none}
+.hero{background:linear-gradient(120deg,#dff4ff 0%,#f6fcff 65%,#fff 100%);padding:76px 0 68px;overflow:hidden}
+.hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:45px;align-items:center}
+.eyebrow{display:inline-block;background:#c7edff;color:#12577f;padding:7px 13px;border-radius:999px;font-size:.78rem;font-weight:800;letter-spacing:.7px;text-transform:uppercase}
+h1{font-size:clamp(2.7rem,5vw,4.8rem);line-height:1.04;letter-spacing:-2px;margin:18px 0;color:var(--navy)}
+h1 em{font-style:normal;color:var(--blue)}.lead{font-size:1.15rem;color:#405c70;max-width:590px}
+.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}.note{font-size:.85rem;color:var(--muted);margin-top:17px}
+.visual{background:#cceeff;border-radius:30px;padding:18px;box-shadow:0 22px 55px #12304a18}
+.visual svg{display:block;width:100%;height:auto}
+section{padding:76px 0}.section-head{text-align:center;max-width:720px;margin:0 auto 38px}
+h2{font-size:clamp(2rem,3.5vw,2.8rem);line-height:1.15;margin:0 0 12px;letter-spacing:-1px}
+.section-head p,.muted{color:var(--muted)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{border:1px solid var(--line);border-radius:20px;padding:24px;background:white;box-shadow:0 8px 24px #12304a08}
+.icon{width:48px;height:48px;border-radius:14px;background:var(--sky);display:grid;place-items:center;font-size:1.45rem;margin-bottom:15px}
+.card h3{margin:0 0 7px;font-size:1.15rem}.card p{margin:0;color:var(--muted);font-size:.96rem}
+.problem{background:var(--pale)}.split{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+.list{padding:0;list-style:none}.list li{padding:12px 0;border-bottom:1px solid var(--line);display:flex;gap:12px}
+.tick{color:var(--blue);font-weight:900}
+.flow{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;align-items:stretch}
+.step{background:var(--pale);border:1px solid var(--line);border-radius:18px;padding:20px;text-align:center;position:relative}
+.step b{display:block;margin:8px 0 4px}.step small{color:var(--muted)}
+.step .num{margin:auto;background:var(--blue);color:white;border-radius:50%;width:38px;height:38px;display:grid;place-items:center;font-weight:800}
+.callout{background:var(--navy);color:white;border-radius:26px;padding:38px;display:flex;align-items:center;justify-content:space-between;gap:24px}
+.callout p{color:#d8eaf5;margin-bottom:0}.callout h2{color:white}
+.safety{background:#eaf7ff;border-left:5px solid var(--blue);padding:20px 22px;border-radius:12px;color:#29485e}
+footer{background:#f3faff;border-top:1px solid var(--line);padding:32px 0;color:var(--muted);font-size:.9rem}
+.footer-row{display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap}
+.tag{display:inline-block;font-size:.75rem;font-weight:800;background:#e7f6ff;color:#17628d;padding:5px 9px;border-radius:7px;margin-bottom:10px}
+@media(max-width:800px){nav{display:none}.hero-grid,.split{grid-template-columns:1fr}.hero{padding:50px 0}.cards{grid-template-columns:1fr 1fr}.flow{grid-template-columns:1fr 1fr}.callout{display:block}.callout .btn{margin-top:20px}}
+@media(max-width:520px){.cards,.flow{grid-template-columns:1fr}.nav{height:64px}.hero-grid{gap:28px}section{padding:55px 0}.callout{padding:27px}}
+</style>
+</head>
+<body>
+<header><div class="container nav">
+  <a class="brand" href="#home">Vision<span>Mate</span></a>
+  <nav aria-label="Main navigation"><a href="#about">About</a><a href="#how">How it works</a><a href="#features">Features</a><a href="#safety">Safety</a></nav>
+  <a class="btn" href="#contact">Explore the idea</a>
+</div></header>
+
+<main>
+<section class="hero" id="home"><div class="container hero-grid">
+  <div>
+    <span class="eyebrow">AI for accessible living</span>
+    <h1>See the world<br><em>through AI.</em></h1>
+    <p class="lead">VisionMate is a proposed wearable assistant concept that turns selected visual information into clear audio descriptions and navigation support for people who are blind or have low vision.</p>
+    <div class="actions"><a class="btn" href="#how">Discover how it works</a><a class="btn secondary" href="#features">View features</a></div>
+    <p class="note">A student entrepreneurship concept focused on independence, accessibility and responsible innovation.</p>
+  </div>
+  <div class="visual" aria-label="Illustration of a wearable camera connected to an AI smartphone and audio earpiece">
+    <svg viewBox="0 0 620 410" role="img" aria-label="Concept illustration of VisionMate wearable camera and phone">
+      <rect x="8" y="8" width="604" height="394" rx="25" fill="#eaf8ff"/>
+      <circle cx="235" cy="185" r="105" fill="#f2c9a5" stroke="#12304a" stroke-width="5"/>
+      <path d="M132 169 Q145 63 235 72 Q330 70 340 166" fill="none" stroke="#12304a" stroke-width="20" stroke-linecap="round"/>
+      <rect x="174" y="72" width="64" height="32" rx="8" fill="#1686c4" stroke="#12304a" stroke-width="4"/>
+      <circle cx="205" cy="88" r="8" fill="#12304a"/>
+      <path d="M327 190 Q358 191 355 230" fill="none" stroke="#1686c4" stroke-width="9" stroke-linecap="round"/>
+      <circle cx="355" cy="235" r="18" fill="#1686c4" stroke="#12304a" stroke-width="4"/>
+      <rect x="415" y="105" width="126" height="220" rx="22" fill="#fff" stroke="#12304a" stroke-width="5"/>
+      <rect x="430" y="128" width="96" height="20" rx="6" fill="#dff4ff"/>
+      <rect x="430" y="166" width="96" height="105" rx="12" fill="#eaf8ff"/>
+      <text x="478" y="218" text-anchor="middle" font-size="34" font-weight="bold" fill="#12304a">AI</text>
+      <text x="478" y="293" text-anchor="middle" font-size="13" font-weight="bold" fill="#12304a">VISIONMATE</text>
+      <path d="M344 230 C380 230 380 230 415 230" stroke="#1686c4" stroke-width="4" stroke-dasharray="8 8" fill="none"/>
+      <rect x="42" y="300" width="245" height="55" rx="15" fill="#fff" stroke="#9bd9f5" stroke-width="2"/>
+      <text x="164" y="334" text-anchor="middle" font-size="18" font-weight="bold" fill="#12304a">Camera + voice guidance</text>
+      <circle cx="565" cy="65" r="17" fill="#8bd3f5"/><circle cx="585" cy="91" r="8" fill="#1686c4"/>
+    </svg>
+  </div>
+</div></section>
+
+<section id="about" class="problem"><div class="container split">
+  <div><span class="tag">THE CHALLENGE</span><h2>Everyday places can be hard to interpret without sight.</h2>
+    <p class="muted">Finding a sign, recognising an object or understanding an unfamiliar environment can require extra time and support. Navigation apps help with routes, but do not necessarily describe nearby objects.</p>
+    <ul class="list"><li><span class="tick">✓</span><span>Understanding objects and signs in unfamiliar places</span></li><li><span class="tick">✓</span><span>Getting useful information without looking at a screen</span></li><li><span class="tick">✓</span><span>Accessing spoken route information while moving</span></li></ul>
+  </div>
+  <div class="visual">
+    <svg viewBox="0 0 520 340" role="img" aria-label="Illustration of a person and everyday obstacles">
+      <rect width="520" height="340" rx="22" fill="#eaf8ff"/>
+      <circle cx="100" cy="105" r="28" fill="#f2c9a5" stroke="#12304a" stroke-width="4"/>
+      <path d="M100 137 L100 230 M100 164 L67 202 M100 164 L133 202 M100 230 L73 290 M100 230 L128 290" stroke="#12304a" stroke-width="12" stroke-linecap="round" fill="none"/>
+      <rect x="245" y="180" width="70" height="105" rx="7" fill="#fff" stroke="#1686c4" stroke-width="4"/>
+      <rect x="365" y="125" width="35" height="160" rx="5" fill="#fff" stroke="#1686c4" stroke-width="4"/>
+      <path d="M425 285 L470 285 L470 250 L425 250 Z" fill="#fff" stroke="#1686c4" stroke-width="4"/>
+      <text x="280" y="165" text-anchor="middle" fill="#12304a" font-size="15" font-weight="bold">BOX</text>
+      <text x="382" y="108" text-anchor="middle" fill="#12304a" font-size="15" font-weight="bold">POLE</text>
+      <path d="M150 210 Q190 180 220 210" stroke="#1686c4" stroke-width="4" stroke-dasharray="7 7" fill="none"/>
+    </svg>
+  </div>
+</div></section>
+
+<section id="how"><div class="container">
+  <div class="section-head"><span class="tag">THE CONCEPT</span><h2>How VisionMate works</h2><p>A camera, AI processing, location services and audio feedback work together to provide useful information.</p></div>
+  <div class="flow">
+    <div class="step"><div class="num">1</div><b>Camera</b><small>Captures a view of the surroundings.</small></div>
+    <div class="step"><div class="num">2</div><b>AI vision</b><small>Identifies supported objects, scenes or text.</small></div>
+    <div class="step"><div class="num">3</div><b>Phone + GPS</b><small>Processes requests and provides outdoor route information.</small></div>
+    <div class="step"><div class="num">4</div><b>Audio</b><small>Speaks concise descriptions through an earpiece.</small></div>
+  </div>
+</div></section>
+
+<section id="features" class="problem"><div class="container">
+  <div class="section-head"><span class="tag">PLANNED CAPABILITIES</span><h2>Useful assistance, designed around audio</h2><p>The first prototype will focus on a small set of functions that can be tested and improved.</p></div>
+  <div class="cards">
+    <article class="card"><div class="icon">◉</div><h3>Object descriptions</h3><p>Provide spoken descriptions of objects recognised by the AI system.</p></article>
+    <article class="card"><div class="icon">⌖</div><h3>Outdoor navigation</h3><p>Explore GPS-based route guidance to a selected destination.</p></article>
+    <article class="card"><div class="icon">▤</div><h3>Text reading</h3><p>Read supported printed text and signboards aloud.</p></article>
+    <article class="card"><div class="icon">♫</div><h3>Voice interaction</h3><p>Let users ask simple questions and hear spoken responses.</p></article>
+    <article class="card"><div class="icon">♡</div><h3>Trusted contact</h3><p>Consider an optional way to contact a trusted person for help.</p></article>
+    <article class="card"><div class="icon">◌</div><h3>Modular design</h3><p>Start with a smartphone-based system before developing custom hardware.</p></article>
+  </div>
+</div></section>
+
+<section id="safety"><div class="container">
+  <div class="section-head"><span class="tag">RESPONSIBLE INNOVATION</span><h2>Safety comes first</h2><p>VisionMate is a concept under development, not a certified mobility device.</p></div>
+  <div class="safety"><strong>Important:</strong> AI can miss objects or misunderstand a scene. The prototype must not be relied on to decide whether a path is safe or to replace a white cane, guide dog or established mobility skills. Any trials should be supervised and co-designed with visually impaired users and accessibility professionals.</div>
+</div></section>
+
+<section id="contact"><div class="container">
+  <div class="callout"><div><span class="tag">OUR MISSION</span><h2>More information. More confidence. More independence.</h2><p>We are exploring how responsible AI can make everyday information more accessible.</p></div><a class="btn secondary" href="#home">Back to top ↑</a></div>
+  <p class="note" style="text-align:center;margin-top:20px">VisionMate is an academic entrepreneurship concept. Product capabilities, pricing and availability are not yet final.</p>
+</div></section>
+</main>
+<footer><div class="container footer-row"><div><strong>VisionMate</strong> · See the world through AI.</div><div>ESL Entrepreneurship Project · 2026</div></div></footer>
+</body>
+</html>
